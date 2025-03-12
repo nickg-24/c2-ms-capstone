@@ -76,6 +76,8 @@ cd /logs/{capture_name}/suricata/
 suricata -r /pcaps/{capture_name}.pcapng -S /etc/suricata/rules/emerging-all.rules
 exit
 ```
+The `-S` option explicitly tells suricata which ruleset to check against. I opted for the ET Open Ruleset over the default included in the docker image. 
+
 **Expected Output (Inside `/logs/{capture_name}/suricata/`)**
 ```
 eve.json        # Main Suricata event log (contains alerts)
