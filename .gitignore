@@ -1,3 +1,4 @@
 /planning/
 .venv/
 /pcaps/
+*__pycache__/
