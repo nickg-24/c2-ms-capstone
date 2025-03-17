@@ -21,7 +21,7 @@ def merge_csv(to_be_merged, output_file):
     print(f"[+] Merged {len(to_be_merged)} CSV files into {output_file}")
 
 
-to_be_merged = ["./data/c2_only/metasploit_0_filtered.csv", "./data/mixed/metasploit_mixed_0.csv"]
-output_file = "./data/combined_datasets/mixed_combined.csv"
+to_be_merged = ["./data/c2_only/metasploit_0_filtered.csv", "./data/mixed/metasploit_mixed_0.csv", "./data/c2_only/metasploit_beaconing_0.csv"]
+output_file = "./data/combined_datasets/foo.csv"
 
 merge_csv(to_be_merged, output_file)
