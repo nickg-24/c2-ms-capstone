@@ -2,3 +2,4 @@
 .venv/
 /pcaps/
 *__pycache__/
+/boneyard/
