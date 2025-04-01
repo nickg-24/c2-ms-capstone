@@ -17,9 +17,10 @@
 - **TODO** `normal_0.csv` → ~10 minutes of normal traffic (google searches, youtube videos, dns lookups, visiting websites). Sourced from `normal_0.csv`
 
 ## Combined Datasets
-- `mixed_combined.csv` → All mixed traffic CSVs merged
+<!-- - `mixed_combined.csv` → All mixed traffic CSVs merged
 - `c2only_combined.csv` → All C2-only traffic CSVs merged
-- `normalonly_combined.csv` → All normal-only traffic CSVs merged.
-- `full_dataset.csv` → EVERYTHING merged (mixed + C2-only + normal)
+- `normalonly_combined.csv` → All normal-only traffic CSVs merged. -->
+<!-- - `full_dataset.csv` → EVERYTHING merged (mixed + C2-only + normal) -->
+- `combined_0.csv` → Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`
 
 - `foo.csv` -> the placeholder for development. 
