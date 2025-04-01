@@ -23,19 +23,9 @@
 | **File System #3** | `upload test.txt` or equivalent | Transfers the test file |
 | **File System #4** | `ls` or equivalent | Ensures file was uploaded |
 | **Command Execution** | `cmd.exe /c echo PWNED` or equivalent | Runs a test command |
-| **Authentication Dumping** | `mimikatz`, `dump-creds`, or equivalent | Extracts credentials (if possible) |
+
 
 4. Stop PCAP capture.
-
----
-
-#### **3. Jitter/Delay Adjustments**
-- If the framework supports jitter/delay, modify settings and repeat the test.
-- Save each test run as a new PCAP file:
-  ```
-  metasploit_test1.pcap  (default settings)
-  metasploit_test2.pcap  (modified jitter)
-  ```
 
 ---
 
@@ -61,6 +51,6 @@
   - **Sliver**
   - **Pupy**
   - **Merlin**
-- Repeat tests with jitter/delay settings if applicable.
+- Repeat tests with jitter/delay settings if there is time.
 
 ---

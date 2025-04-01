@@ -32,6 +32,7 @@
 - [ ] **Test** reverse\_https (default and with jitter)  
 - [ ] **Capture** baseline beaconing traffic for each protocol  
 - [ ] **Capture** attack traffic for each protocol
+- [x] initial setup, connection established, able to run commands
 
 ## [2\. Covenant:](https://github.com/cobbr/Covenant)
 
@@ -46,20 +47,20 @@
   - Can modify: HTTP Headers (mimic legitimate applications like Chrome, APIs) and URIs/Parameters (to make traffic appear as normal web browsing)  
   - Will need to develop listener profiles to mimic standard traffic
 
+
 **Requirements/TODOs:**
 
-- [ ] Setup dockerized server  
+- [x] Setup dockerized server  
       - Great [link](https://www.hackingarticles.in/covenant-for-pentester-basics/) explaining everything from installation to exploitation  
-- [ ] Windows victim machine (grunt)  
-- [ ] Develop listener profiles to mimic standard traffic  
-- [ ] Generate trusted cert for ssl traffic (if there is time)  
+- [x] Windows victim machine (grunt)
+- [x] initial setup, connection established, able to run commands
 - [ ] **Identify Tasks to Test**  
       - Recon (WhoAmI, GetCurrentDirectory, Process-List, GetNetStat, GetSystemInfo)  
       - File system access (ChangeDirectory, ListFiles, Upload, Download)  
       - Authentication Data collection (MimikatzLogonPasswords)  
       - Command and Code Execution (ExecuteAssembly, Invoke-Powershell)  
 - [ ] **Test** HTTPS traffic  
-- [ ] **Test** different delays and jitter percentages  
+- [ ] **Test** different delays and jitter percentages (if there is time)
 - [ ] **Capture** baseline beaconing traffic for each protocol  
 - [ ] **Capture** attack traffic for each protocol
 
@@ -83,17 +84,18 @@
       - File system access (change dir, list files, upload file, download file)  
       - Authentication data collection (tasks to extract or collect authentication-related data. Ex: dumping password hashes, extracting ssh keys and env vars)  
       - Command and Code Execution (running scripts, console commands, etc.)  
-- [ ] **Test** HTTPS traffic (Empire will auto-generate a self-signed cert for HTTPS, check documentation). **Transfer** the stager script to each of the victim machines and run them (victims will reach out to listener, capture this traffic). This will set up the agents.   
-- [ ] **Test** different delay and jitter values  
+- [ ] **Test** HTTPS traffic (i think i have to generate a self signed cert). **Transfer** the stager script to each of the victim machines and run them (victims will reach out to listener, capture this traffic). This will set up the agents.   
+- [ ] **Test** different delay and jitter values (if there is time)
 - [ ] **Capture** baseline beaconing traffic for each protocol  
 - [ ] **Capture** attack traffic for each protocol
+- [ ] initial setup, connection established, able to run commands
 
 ## [4\. Sliver C2:](https://github.com/BishopFox/sliver?tab=readme-ov-file)
 
 - Simple one liner to install on kali  
 - HTTP(S), mTLS, and DNS c2s  
 - Comes with a dockerfile  
-- **Maybe** test mTLS listener if there is time. Not as common of a protocol and requires additional overhead for “normal” traffic.  
+- for “normal” traffic.  
 - Has GREAT [docs](https://sliver.sh/)
 
 **Requirements/TODOs:**
@@ -105,9 +107,10 @@
       - File system access (change dir, list files, upload file, download file)  
       - Authentication data collection (tasks to extract or collect authentication-related data. Ex: dumping password hashes, extracting ssh keys and env vars)  
       - Command and Code Execution (running scripts, console commands, etc.)  
-- [ ] **Test** HTTPS listener using sliver generated cert  
-- [ ] **Test** different delay and jitter values  
+- [ ] **Test** HTTPS listener using **sliver generated** cert  
+- [ ] **Test** different delay and jitter values (if there is time) 
 - [ ] **Capture** beaconing traffic (default behavior) for baseline testing; assign commands or execute tasks on implants later for additional traffic patterns.
+- [ ] initial setup, connection established, able to run commands
 
 ## [5\. Pupy:](https://github.com/n1nj4sec/pupy)
 
@@ -129,6 +132,7 @@
       - Command and Code Execution (running scripts, console commands, etc.)  
 - [ ] **Test** http \[http+rsa\] transport (basic HTTP stack with RSA)  
 - [ ] **Capture** beaconing traffic (default behavior) for baseline testing; assign commands or execute tasks on implants later for additional traffic patterns.
+- [ ] initial setup, connection established, able to run commands
 
 ## [6\. Merlin:](https://github.com/Ne0nd0g/merlin)
 
@@ -145,5 +149,6 @@
       - Authentication data collection (tasks to extract or collect authentication-related data. Ex: dumping password hashes, extracting ssh keys and env vars)  
       - Command and Code Execution (running scripts, console commands, etc.)  
 - [ ] **Test** HTTP/2 with merlin generated cert  
-- [ ] **Test** different delay and jitter values (double check this is a feature)  
+- [ ] **Test** different delay and jitter values (double check this is a feature, if there is time)  
 - [ ] **Capture** beaconing traffic (default behavior) for baseline testing; assign commands or execute tasks on implants later for additional traffic patterns.
+- [ ] initial setup, connection established, able to run commands
