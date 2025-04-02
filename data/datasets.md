@@ -5,7 +5,7 @@ Targeting ~10k packets per C2 framework, each making up about 3.2% of total traf
 ## Mixed Traffic (`./mixed`): Normal and C2 Traffic
 - `metasploit_mixed_0.csv` → Mixed metasploit traffic, sourced from `metasploit_mixed_0.pcapng`
 
-## C2-Only Traffic (`./c2_only`): Exclusively C2 Traffic (10035 packets total)
+## C2-Only Traffic (`./c2_only`): Exclusively C2 Traffic (29846 packets total)
 ### Metasploit (9129 packets total)
 - `metasploit_0_filtered.csv` → 1605 packets Metasploit traffic, sourced from `metasploit_0_filtered.pcapng`
 - `metasploit_beaconing_0.csv` → 1245 packets, ~10 minutes of beaconing with the occasional `pwd` to make sure the session stays open. Sourced from `metasploit_beaconing_0.pcapng`
@@ -19,8 +19,9 @@ Targeting ~10k packets per C2 framework, each making up about 3.2% of total traf
 - `covenant_beaconing_2.csv` → 1422 packets, ~60 minutes of just beaconing, with a `WhoAmI` about every 5 minutes to ensure the session stayed open. Sourced from `covenant_beaconing_2.pcapng`
 - `covenant_tasks_0.csv` → 5164 packets, ~35 minutes. Ran WhoAmI, GetNetLoggedOnUser (got domain info), GetCurrentDirectory, ListDirectory, GetNetSession, CreateDirectory, ProcessList, Download file, Shell (executes shell commands), Powershell (run powershell commands), Mimikatz, ChangeDirecotry a number of times. General C2 usage. Sourced from `covenant_tasks_0.pcapng`
 
-### TODO Empire
-foo
+### TODO Empire (10570 packets total)
+- `empire_beaconing_0.csv` → 7357 packets, ~51 minutes of beaconing, with an occasional `pwd` to ensure the session stays open. Sourced from `empire_beaconing_0.pcapng`.
+- `empire_task_0.csv` → 3213 packets, ~20 minutes. Ran ipconfig, whoami, ls, mkdir, uploaded a file, downloaded a file, file system traversal, cat a file, created files, ps. Sourced from `empire_tasks_0.pcapng`.
 
 ### TODO Sliver
 foo
@@ -44,5 +45,7 @@ foo
 - `combined_1.csv` → 259375 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `normal_1.csv`
 
 - `combined_2.csv` → 268616 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `normal_1.csv`, `covenant_tasks_0.csv`, `metasploit_tasks_0.csv`
+
+- `combined_3.csv` → 279184 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `normal_1.csv`, `covenant_tasks_0.csv`, `metasploit_tasks_0.csv`, `empire_beaconing_0.csv`, `empire_tasks_0.csv`.
 
 - `foo.csv` -> the placeholder for development. 
