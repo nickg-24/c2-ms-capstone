@@ -36,8 +36,12 @@ to_be_merged = [
     "./data/c2_only/metasploit_tasks_0.csv",
     "./data/c2_only/empire_tasks_0.csv",
     "./data/c2_only/empire_beaconing_0.csv",
+    "./data/c2_only/sliver_beaconing_0.csv",
+    "./data/c2_only/sliver_beaconing_1.csv",
+    "./data/c2_only/sliver_tasks_0.csv",
+    "./data/c2_only/sliver_tasks_1.csv",
 ]
 # output_file = "./data/combined_datasets/foo.csv"
-output_file = "./data/combined_datasets/combined_3.csv"
+output_file = "./data/combined_datasets/combined_4.csv"
 
 merge_csv(to_be_merged, output_file)
