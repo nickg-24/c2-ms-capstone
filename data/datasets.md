@@ -27,7 +27,7 @@ Targeting ~10k packets per C2 framework, each making up about 3.2% of total traf
 - `sliver_beaconing_0.csv` → 4946 packets, ~10 minutes of beaconing, with an occasional `pwd` to ensure the connection stays open. Generated payload as a "session" (`SPRITUAL_ORGAN.exe`). Sourced from `sliver_beaconing_0.pcapng`.
 - `sliver_beaconing_1.csv` → 2568 packets, ~2 hours of beaconing, Agent checks in around every 60 seconds. Generated payload as a "beacon" (`SKINNY_OUTCOME.exe`). Sourced from `sliver_beaconing_1.pcapng`.
 - `sliver_tasks_0.csv` →  2004 packets, ~3 minutes. In session mode (`SPRITUAL_ORGAN.exe`) ran whoami, ls, mkdir, cd, pwd, cat, upload, download. Sourced from `sliver_tasks_0.pcapng`.
-- `sliver_tasks_1.csv`  → 634 packets, ~ foo minutes. In beacon mode (`SKINNY_OUTCOME.exe`) ran ls, mkdir, whoami, pwd, netstat, ps, memfiles, do, cd, upload, download. Sourced from `sliver_tasks_1.pcapng`.
+- `sliver_tasks_1.csv`  → 634 packets, ~12 minutes. In beacon mode (`SKINNY_OUTCOME.exe`) ran ls, mkdir, whoami, pwd, netstat, ps, memfiles, do, cd, upload, download. Sourced from `sliver_tasks_1.pcapng`.
 
 
 ### TODO Pupy
