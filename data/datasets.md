@@ -24,7 +24,7 @@ Targeting ~10k packets per C2 framework, each making up about 3.2% of total traf
 ### Empire (10570 packets total)
 **CSV packet num matches pcapng's**
 - `empire_beaconing_0.csv` → 7357 packets, ~51 minutes of beaconing, with an occasional `pwd` to ensure the connection stays open. Sourced from `empire_beaconing_0.pcapng`.
-- `empire_task_0.csv` → 3213 packets, ~20 minutes. Ran ipconfig, whoami, ls, mkdir, uploaded a file, downloaded a file, file system traversal, cat a file, created files, ps. Sourced from `empire_tasks_0.pcapng`.
+- `empire_tasks_0.csv` → 3213 packets, ~20 minutes. Ran ipconfig, whoami, ls, mkdir, uploaded a file, downloaded a file, file system traversal, cat a file, created files, ps. Sourced from `empire_tasks_0.pcapng`.
 
 ### Sliver (10151 packets total)
 **CSV packet num matches pcapng's**
@@ -47,21 +47,16 @@ foo
 
 
 ## Combined Datasets
-The numbers are weird for the combined.
-<!-- - `mixed_combined.csv` → All mixed traffic CSVs merged
-- `c2only_combined.csv` → All C2-only traffic CSVs merged
-- `normalonly_combined.csv` → All normal-only traffic CSVs merged. -->
-<!-- - `full_dataset.csv` → EVERYTHING merged (mixed + C2-only + normal) -->
 <!-- - `combined_0.csv` → FOO Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `metasploit_mixed_.csv` -->
 
 - `combined_1.csv` → 270456 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `covenant_tasks_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `metasploit_tasks_0.csv`, `normal_1.csv`
 
-- `combined_2.csv` → FOO Packets. Merged:
+- `combined_2.csv` → 281026 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `covenant_tasks_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `metasploit_tasks_0.csv`, `normal_1.csv`, `empire_beaconing_0.csv`, `empire_tasks_0.csv`
 
-- `combined_3.csv` → FOO Packets. Merged: 
 
-- `combined_4.csv` → FOO Packets. Merged: 
+- `combined_3.csv` → 291177 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `covenant_tasks_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `metasploit_tasks_0.csv`, `normal_1.csv`, `empire_beaconing_0.csv`, `empire_tasks_0.csv`, `sliver_beaconing_0.csv`, `sliver_beaconing_1.csv`, `sliver_tasks_0.csv`, `sliver_tasks_1.csv`
 
-- `combined_5.csv` → FOO Packets. Merged: 
+- `combined_4.csv` → 299736 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `covenant_tasks_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `metasploit_tasks_0.csv`, `normal_1.csv`, `empire_beaconing_0.csv`, `empire_tasks_0.csv`, `sliver_beaconing_0.csv`, `sliver_beaconing_1.csv`, `sliver_tasks_0.csv`, `sliver_tasks_1.csv`, `merlin_beaconing_0.csv`, `merline_tasks_0.csv`
+
 
 - `foo.csv` -> the placeholder for development. 
