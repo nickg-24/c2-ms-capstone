@@ -23,28 +23,48 @@ def merge_csv(to_be_merged, output_file):
 
 
 # to_be_merged = ["./data/c2_only/metasploit_0_filtered.csv", "./data/mixed/metasploit_mixed_0.csv", "./data/c2_only/metasploit_beaconing_0.csv", "./data/c2_only/metasploit_beaconing_1.csv", "./data/c2_only/metasploit_beaconing_2.csv"]
-# to_be_merged = ["./data/combined_datasets/foo.csv", "./data/mixed/metasploit_mixed_0.csv"]
+# to_be_merged = [
+#     "./data/combined_datasets/foo.csv", 
+#     "./data/combined_datasets/foo2.csv"
+#     ]
+
+
 to_be_merged = [
-    "./data/c2_only/covenant_beaconing_0.csv", 
-    "./data/c2_only/covenant_beaconing_1.csv", 
-    "./data/c2_only/covenant_beaconing_2.csv", 
+    "./data/c2_only/covenant_beaconing_0.csv",
+    "./data/c2_only/covenant_beaconing_1.csv",
+    "./data/c2_only/covenant_beaconing_2.csv",
+    "./data/c2_only/covenant_random_0.csv",
+    "./data/c2_only/covenant_tasks_0.csv",
+    "./data/c2_only/metasploit_0_filtered.csv",
     "./data/c2_only/metasploit_beaconing_0.csv",
     "./data/c2_only/metasploit_beaconing_1.csv",
     "./data/c2_only/metasploit_beaconing_2.csv",
-    "./data/c2_only/metasploit_0_filtered.csv",
-    "./data/normal_only/normal_1.csv",
-    "./data/c2_only/covenant_tasks_0.csv",
     "./data/c2_only/metasploit_tasks_0.csv",
-    "./data/c2_only/empire_tasks_0.csv",
-    "./data/c2_only/empire_beaconing_0.csv",
-    "./data/c2_only/sliver_beaconing_0.csv",
-    "./data/c2_only/sliver_beaconing_1.csv",
-    "./data/c2_only/sliver_tasks_0.csv",
-    "./data/c2_only/sliver_tasks_1.csv",
-    "./data/c2_only/merlin_beaconing_0.csv",
-    "./data/c2_only/merlin_tasks_0.csv",
-]
+    "./data/normal_only/normal_1.csv", # combined_1.csv
+    ]
+
+
+# to_be_merged = [
+#     "./data/c2_only/covenant_beaconing_0.csv", 
+#     "./data/c2_only/covenant_beaconing_1.csv", 
+#     "./data/c2_only/covenant_beaconing_2.csv", 
+#     "./data/c2_only/metasploit_beaconing_0.csv",
+#     "./data/c2_only/metasploit_beaconing_1.csv",
+#     "./data/c2_only/metasploit_beaconing_2.csv",
+#     "./data/c2_only/metasploit_0_filtered.csv",
+#     "./data/normal_only/normal_1.csv",
+#     "./data/c2_only/covenant_tasks_0.csv",
+#     "./data/c2_only/metasploit_tasks_0.csv",
+#     "./data/c2_only/empire_tasks_0.csv",
+#     "./data/c2_only/empire_beaconing_0.csv",
+#     "./data/c2_only/sliver_beaconing_0.csv",
+#     "./data/c2_only/sliver_beaconing_1.csv",
+#     "./data/c2_only/sliver_tasks_0.csv",
+#     "./data/c2_only/sliver_tasks_1.csv",
+#     "./data/c2_only/merlin_beaconing_0.csv",
+#     "./data/c2_only/merlin_tasks_0.csv",
+# ]
 # output_file = "./data/combined_datasets/foo.csv"
-output_file = "./data/combined_datasets/combined_5.csv"
+output_file = "./data/combined_datasets/combined_1.csv"
 
 merge_csv(to_be_merged, output_file)
