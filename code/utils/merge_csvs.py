@@ -40,8 +40,10 @@ to_be_merged = [
     "./data/c2_only/sliver_beaconing_1.csv",
     "./data/c2_only/sliver_tasks_0.csv",
     "./data/c2_only/sliver_tasks_1.csv",
+    "./data/c2_only/merlin_beaconing_0.csv",
+    "./data/c2_only/merlin_tasks_0.csv",
 ]
 # output_file = "./data/combined_datasets/foo.csv"
-output_file = "./data/combined_datasets/combined_4.csv"
+output_file = "./data/combined_datasets/combined_5.csv"
 
 merge_csv(to_be_merged, output_file)
