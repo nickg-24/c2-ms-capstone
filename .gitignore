@@ -3,3 +3,4 @@
 /pcaps/
 *__pycache__/
 /boneyard/
+*/models/
