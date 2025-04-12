@@ -1,6 +1,6 @@
 # Validation Summary Report
 
-**Generated:** 2025-04-11 23:05:48
+**Generated:** 2025-04-11 23:53:24
 
 ## Full Model Evaluation (Hold-Out)
 
@@ -132,16 +132,17 @@ weighted avg       0.96      0.96      0.96     51210
 
 ## ROC Curve Comparison
 
-![ROC Comparison](images/validation_summary_2025-04-11_22-37-46_roc_comparison.png)
+![ROC Comparison](images/validation_summary_2025-04-11_23-32-49_roc_comparison.png)
 
 ---
-## Validation Metrics Summary (Folded Methods Use Mean Values)
+## Validation Metrics Summary (Folds and Shuffle Runs Averaged)
 
 | Run             |   F1 (C2) |   Recall (C2) |      AUC |
 |:----------------|----------:|--------------:|---------:|
 | Hold-Out        |  0.944186 |      0.936843 | 0.995302 |
 | K-Fold          |  0.946499 |      0.940865 | 0.995664 |
 | Repeated K-Fold |  0.94843  |      0.941891 | 0.995695 |
+| Shuffle Split   |  0.943445 |      0.936097 | 0.995137 |
 | LOGO_metasploit |  0.618687 |      0.461252 | 0.977084 |
 | LOGO_covenant   |  0.821061 |      0.715787 | 0.97097  |
 | LOGO_empire     |  0.913755 |      0.866036 | 0.99355  |
