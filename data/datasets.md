@@ -2,9 +2,6 @@
 
 Targeting ~10k packets per C2 framework, each making up about 3.2% of total traffic. Overall, the dataset will be roughly 20% C2 and 80% normal traffic. Note, only IP packets were included in datasets. This means there may be slight differences in packet counts between pcaps and csvs. This is intentional.
 
-## Mixed Traffic (`./mixed/`): Normal and C2 Traffic
-- `metasploit_mixed_0.csv` → Mixed metasploit traffic, sourced from `metasploit_mixed_0.pcapng`
-
 ## C2-Only Traffic (`./c2_only/`): Exclusively C2 Traffic (60921 packets total)
 ### Metasploit - `metasploit_only.csv` (9123 packets total)
 - `metasploit_0_filtered.csv` → 1603 packets Metasploit traffic, sourced from `metasploit_0_filtered.pcapng`
@@ -43,8 +40,23 @@ Targeting ~10k packets per C2 framework, each making up about 3.2% of total traf
 
 
 
+
+
 ## Normal-Only Traffic (`./normal_only/`): Exclusively Normal Traffic (249057 packets total)
 - `normal_1.csv` → 249057 packets, ~20 minutes of normal traffic (google searches, youtube videos, dns lookups, visiting websites). 249057 packets, sourced from `normal_1.pcapng`
+
+
+## Mixed Traffic (`./mixed/`): Normal and C2 Traffic
+- `metasploit_mixed_0.csv` → Mixed metasploit traffic, sourced from `metasploit_mixed_0.pcapng`
+
+- `metasploit_mixed_1.csv` → 15241 packets, ~5 minutes. ~10% c2 packets. Web browsing on target machine and c2 traffic. Ran ls, pwd, ipconfig, netstat, ps, whoami, run exe, etc. Sourced from `metasploit_mixed_1.pcapng`.
+
+- `covenant_mixed_0.csv` → 12127 packets, ~9 minutes. ~9.7% c2 packets. Web browsing on target machine and c2 traffic. Ran ls, ps, pwd, whoami, run exe, cd, upload file, download file, etc.
+
+
+- `empire_mixed_0.csv` → 14016 packets, ~10 minutes. ~9% c2 packets. Web browsing on target machine and c2 traffic. Ran ls, pwd, whoami, ps, run exe, netstat, ipconfig, upload file, download file
+
+- `merlin_mixed_0.csv` → 11000 packets, ~10 minutes. ~8% c2 packets. Web browsing on target machine and c2 traffic. Ran info, ps, netstat, pwd, ls, run exe, etc.
 
 
 ## Combined Datasets
