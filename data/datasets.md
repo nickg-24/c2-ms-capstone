@@ -39,9 +39,6 @@ Targeting ~10k packets per C2 framework, each making up about 3.2% of total traf
 - `posh_tasks_1.csv` → 3843 packets, ~10 minutes. Ran ipconfig, ls, ps, type, netstat, ran executables, etc. Sourced from `posh_tasks_1.csv`.
 
 
-
-
-
 ## Normal-Only Traffic (`./normal_only/`): Exclusively Normal Traffic (249057 packets total)
 - `normal_1.csv` → 249057 packets, ~20 minutes of normal traffic (google searches, youtube videos, dns lookups, visiting websites). 249057 packets, sourced from `normal_1.pcapng`
 
@@ -53,13 +50,11 @@ Targeting ~10k packets per C2 framework, each making up about 3.2% of total traf
 
 - `covenant_mixed_0.csv` → 12084 packets, ~9 minutes. ~10% c2 packets. Web browsing/Windows 10 idling on target machine and c2 traffic. Ran ls, ps, pwd, whoami, run exe, cd, upload file, download file, etc. Sourced from `covenant_mixed_0.pcapng`.
 
-
 - `empire_mixed_0.csv` → 13973 packets, ~10 minutes. ~9% c2 packets. Web browsing/Windows 10 idling on target machine and c2 traffic. Ran ls, pwd, whoami, ps, run exe, netstat, ipconfig, upload file, download file. Sourced from `empire_mixed_0.pcapng`.
 
 - `merlin_mixed_0.csv` → 52750 packets, ~13 minutes. ~2% c2 packets. Web browsing/Windows 10 idling on target machine and c2 traffic. Ran info, ps, netstat, pwd, ls, run exe, etc. Sourced from `merlin_mixed_0.pcapng`.
 
 - `merlin_mixed_1.csv` → 6843 packets, ~5 minutes. ~6% c2 packets. Web browsing/Windows 10 idling on target machine and c2 traffic. Ran info, ps, netstat, pwd, ls, run exe, etc. Sourced from `merlin_mixed_1.pcapng`.
-
 
 - `posh_mixed_0.csv` → 10724 packets, ~3 minutes. ~11% c2 packets. Web browsing/Windows 10 idling on target machine and c2 traffic. Ran ls, whoami, pwd, ps, shell commands, mkdir, download files, etc. Sourced from `posh_mixed_0.pcapng`.
 
@@ -67,9 +62,8 @@ Targeting ~10k packets per C2 framework, each making up about 3.2% of total traf
 - `sliver_mixed_1.csv` → 15979 packets, ~4 minutes. ~11% c2 packets. Web browsing/Windows 10 idling on target machine and c2 traffic. Ran ls, whoami, pwd, execute shell, netstat, ipconfig, ps, etc. in session mode. Sourced from `sliver_mixed_0.pcapng`.
 
 - `sliver_mixed_1.csv` → 4034 packets, ~8 minutes. ~8% c2 packets. Web browsing/Windows 10 idling on target machine and c2 traffic. Ran ls, whoami, pwd, execute shell, netstat, ipconfig, ps, etc. in beacon mode. Sourced from `sliver_mixed_1.pcapng`
-## Combined Datasets
-<!-- - `combined_0.csv` → FOO Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `metasploit_mixed_.csv` -->
 
+## Combined Datasets
 - `combined_1.csv` → 270456 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `covenant_tasks_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `metasploit_tasks_0.csv`, `normal_1.csv`
 
 - `combined_2.csv` → 281026 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `covenant_tasks_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `metasploit_tasks_0.csv`, `normal_1.csv`, `empire_beaconing_0.csv`, `empire_tasks_0.csv`
@@ -80,4 +74,6 @@ Targeting ~10k packets per C2 framework, each making up about 3.2% of total traf
 - `combined_4.csv` → 299736 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `covenant_tasks_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `metasploit_tasks_0.csv`, `normal_1.csv`, `empire_beaconing_0.csv`, `empire_tasks_0.csv`, `sliver_beaconing_0.csv`, `sliver_beaconing_1.csv`, `sliver_tasks_0.csv`, `sliver_tasks_1.csv`, `merlin_beaconing_0.csv`, `merlin_tasks_0.csv`
 
 - `combined_5.csv` → 309978 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `covenant_tasks_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `metasploit_tasks_0.csv`, `normal_1.csv`, `empire_beaconing_0.csv`, `empire_tasks_0.csv`, `sliver_beaconing_0.csv`, `sliver_beaconing_1.csv`, `sliver_tasks_0.csv`, `sliver_tasks_1.csv`, `merlin_beaconing_0.csv`, `merlin_tasks_0.csv`, `posh_beaconing_0.csv`, `posh_tasks_0.csv`, `posh_tasks_1.csv`
+
+- `combined_6.csv` → 361975 Packets. Merged: `covenant_beaconing_0.csv`, `covenant_beaconing_1.csv`, `covenant_beaconing_2.csv`, `covenant_random_0.csv`, `covenant_tasks_0.csv`, `metasploit_0_filtered.csv`, `metasploit_beaconing_0.csv`, `metasploit_beaconing_1.csv`, `metasploit_beaconing_2.csv`, `metasploit_tasks_0.csv`, `normal_1.csv`, `empire_beaconing_0.csv`, `empire_tasks_0.csv`, `sliver_beaconing_0.csv`, `sliver_beaconing_1.csv`, `sliver_tasks_0.csv`, `sliver_tasks_1.csv`, `merlin_beaconing_0.csv`, `merlin_tasks_0.csv`, `posh_beaconing_0.csv`, `posh_tasks_0.csv`, `posh_tasks_1.csv`, `metasploit_mixed_1.csv`, `covenant_mixed_0.csv`, `empire_mixed_0.csv`, `posh_mixed_0.csv`
 
