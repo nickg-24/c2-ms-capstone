@@ -1,51 +1,51 @@
 # Mixed Traffic Inference Summary
 
-**Generated:** 2025-04-14 19:39:04
+**Generated:** 2025-04-14 23:38:29
 
 ## Notes
 Used the `combined_6_rf` model to evaluate mixed traffic from various frameworks.
 
-## merlin_mixed_0.csv
+## merlin_mixed_1.csv
 
-- AUC (threshold-independent): `0.9703`
+- AUC (threshold-independent): `0.9299`
 
 ### Threshold 0.3
-- Accuracy: `0.9745`
+- Accuracy: `0.9375`
 ```
               precision    recall  f1-score   support
 
-           0     0.9953    0.9786    0.9869     51746
-           1     0.4084    0.7620    0.5318      1004
+           0     0.9799    0.9531    0.9663      6444
+           1     0.4748    0.6842    0.5606       399
 
-    accuracy                         0.9745     52750
-   macro avg     0.7019    0.8703    0.7593     52750
-weighted avg     0.9841    0.9745    0.9782     52750
+    accuracy                         0.9375      6843
+   macro avg     0.7273    0.8187    0.7635      6843
+weighted avg     0.9504    0.9375    0.9427      6843
 ```
 
 ### Threshold 0.4
-- Accuracy: `0.9815`
+- Accuracy: `0.9484`
 ```
               precision    recall  f1-score   support
 
-           0     0.9945    0.9867    0.9906     51746
-           1     0.5106    0.7171    0.5965      1004
+           0     0.9761    0.9690    0.9725      6444
+           1     0.5516    0.6165    0.5822       399
 
-    accuracy                         0.9815     52750
-   macro avg     0.7526    0.8519    0.7935     52750
-weighted avg     0.9853    0.9815    0.9831     52750
+    accuracy                         0.9484      6843
+   macro avg     0.7638    0.7928    0.7774      6843
+weighted avg     0.9513    0.9484    0.9498      6843
 ```
 
 ### Threshold 0.5
-- Accuracy: `0.9842`
+- Accuracy: `0.9546`
 ```
               precision    recall  f1-score   support
 
-           0     0.9932    0.9907    0.9919     51746
-           1     0.5744    0.6494    0.6096      1004
+           0     0.9726    0.9794    0.9760      6444
+           1     0.6243    0.5539    0.5870       399
 
-    accuracy                         0.9842     52750
-   macro avg     0.7838    0.8200    0.8008     52750
-weighted avg     0.9852    0.9842    0.9846     52750
+    accuracy                         0.9546      6843
+   macro avg     0.7984    0.7666    0.7815      6843
+weighted avg     0.9523    0.9546    0.9533      6843
 ```
 
 ## sliver_mixed_0.csv
@@ -141,9 +141,9 @@ Note: Conditional formatting is only visible in the Jupyter Notebook.
 
 | Framework   |   Threshold |   F1 (C2) |   Recall (C2) |    AUC |
 |:------------|------------:|----------:|--------------:|-------:|
-| merlin_0    |         0.3 |    0.5318 |        0.762  | 0.9703 |
-| merlin_0    |         0.4 |    0.5965 |        0.7171 | 0.9703 |
-| merlin_0    |         0.5 |    0.6096 |        0.6494 | 0.9703 |
+| merlin_1    |         0.3 |    0.5606 |        0.6842 | 0.9299 |
+| merlin_1    |         0.4 |    0.5822 |        0.6165 | 0.9299 |
+| merlin_1    |         0.5 |    0.587  |        0.5539 | 0.9299 |
 | sliver_0    |         0.3 |    0.7306 |        0.7109 | 0.9555 |
 | sliver_0    |         0.4 |    0.7147 |        0.6261 | 0.9555 |
 | sliver_0    |         0.5 |    0.6667 |        0.5452 | 0.9555 |
