@@ -59,7 +59,7 @@ Targeting ~10k packets per C2 framework, each making up about 3.2% of total traf
 - `posh_mixed_0.csv` → 10724 packets, ~3 minutes. ~11% c2 packets. Web browsing/Windows 10 idling on target machine and c2 traffic. Ran ls, whoami, pwd, ps, shell commands, mkdir, download files, etc. Sourced from `posh_mixed_0.pcapng`.
 
 
-- `sliver_mixed_1.csv` → 15979 packets, ~4 minutes. ~11% c2 packets. Web browsing/Windows 10 idling on target machine and c2 traffic. Ran ls, whoami, pwd, execute shell, netstat, ipconfig, ps, etc. in session mode. Sourced from `sliver_mixed_0.pcapng`.
+- `sliver_mixed_0.csv` → 15979 packets, ~4 minutes. ~11% c2 packets. Web browsing/Windows 10 idling on target machine and c2 traffic. Ran ls, whoami, pwd, execute shell, netstat, ipconfig, ps, etc. in session mode. Sourced from `sliver_mixed_0.pcapng`.
 
 - `sliver_mixed_1.csv` → 4034 packets, ~8 minutes. ~8% c2 packets. Web browsing/Windows 10 idling on target machine and c2 traffic. Ran ls, whoami, pwd, execute shell, netstat, ipconfig, ps, etc. in beacon mode. Sourced from `sliver_mixed_1.pcapng`
 

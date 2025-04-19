@@ -73,10 +73,10 @@ files.log      # Metadata about extracted files
 ```bash
 docker exec -it suricata /bin/bash
 cd /logs/{capture_name}/suricata/
-suricata -r /pcaps/{capture_name}.pcapng -S /etc/suricata/rules/emerging-all.rules
+suricata -r /pcaps/{capture_name}.pcapng -S /etc/suricata/rules/4-17-emerging-all.rules
 exit
 ```
-The `-S` option explicitly tells suricata which ruleset to check against. I opted for the ET Open Ruleset over the default included in the docker image. 
+The `-S` option explicitly tells suricata which ruleset to check against. I opted for the ET Open Ruleset which covers a wide variety of signatures, include c2 traffic. I used the version for suricates 7.0.3, updated on 7/17/2025 
 
 **Expected Output (Inside `/logs/{capture_name}/suricata/`)**
 ```
