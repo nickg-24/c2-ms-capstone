@@ -1,133 +1,90 @@
-### **Feature Overview and Justification**
+# Feature Extraction Script for Packet-Level C2 Detection
+This script extracts packet-level features from a PCAP file using `tshark` and outputs a CSV file for use in training or evaluating a machine learning model for detecting command-and-control (C2) traffic.
 
-This section provides a breakdown of each feature used in the dataset, explaining what it measures, how it is calculated (if applicable), and why it was selected for this project.
-The current iteration of selected features come from **`extract_features_mixed_0.py`**
+## Overview
+This script focuses on packet-level features to detect C2 traffic, avoiding reliance on decrypted payloads or flow-based aggregation. Instead, it captures timing, structure, and TCP behaviors that may vary between C2 frameworks and normal traffic.
 
----
-
-### **1. Frame Length (`frame.len`)**
-- **What it measures:** The total size of the packet in bytes.
-- **Calculation:** Directly extracted from packet metadata using `tshark`.
-- **Why it was selected:** 
-  - Different protocols and frameworks may use characteristic packet sizes.
-  - Some C2 frameworks might send smaller, more uniform packets to avoid detection.
-  - Others might pad traffic to match legitimate sizes, which could still be an identifiable pattern.
+Key Design Decisions:
+- Only IP-layer packets are processed (filters out ARP, L2 broadcast, etc.).
+- C2 traffic is dynamically labeled using a hardcoded C2 server IP.
+- Internal vs. external IPs are abstracted into binary features to support generalization beyond specific IP addresses.
+- Structural and temporal behaviors (e.g., inter-packet timing, TCP flags) are emphasized as encrypted payloads cannot be used.
 
 ---
 
-### **2. IP Protocol (`ip.proto`)**
-- **What it measures:** The protocol number used by the IP packet (e.g., TCP = 6, UDP = 17).
-- **Calculation:** Extracted from packet headers via `tshark`.
-- **Why it was selected:** 
-  - All C2 frameworks in this study use HTTPS (which operates over TCP, `ip.proto=6`).
-  - If anomalies occur (e.g., C2 using UDP instead), this could be useful.
-  - May help identify unexpected C2 behavior in encrypted protocols.
+## Features Extracted
+1. Frame Length (`frame.len`)
+- **What it measures:** Size of the packet in bytes.
+- **Why it's included:** Different C2 frameworks may produce characteristic packet sizes (e.g., small, uniform packets or padded traffic).
+
+2. IP Protocol (`ip.proto`)
+- **What it measures:** Transport layer protocol (e.g., TCP = 6, UDP = 17).
+- **Why it's included:** All frameworks use TCP (HTTPS), but this allows detection of protocol anomalies if they occur.
+
+3. Source/Destination IP Class (`src_ip`, `dst_ip`)
+- **What it measures:** Whether the IP address is internal (0) or external (1).
+- **Why it's included:** Abstracts IP identity into a generalizable behavioral feature that doesn't rely on specific IPs.
+
+4. C2 Label (`c2_label`)
+- **What it measures:** Binary label indicating whether the packet is part of C2 traffic (1) or not (0), based on hardcoded C2 IP.
+- **Why it's included:** Enables supervised learning by distinguishing C2 vs. normal traffic in the dataset.
+
+5. Time Since Last Packet (`time_since_last`)
+- **What it measures:** Delay between the current packet and the previous one.
+- **Why it's included:** C2 frameworks often use timed beaconing or exhibit bursty timing patterns.
+
+6. Delta Time Ratio (`delta_t_ratio`)
+- **What it measures:** Ratio of current `time_since_last` to the previous one.
+- **Why it's included:** Highlights sudden timing shifts, useful for detecting irregular beaconing or bursty traffic.
+
+7. Rolling Mean of Time Delta (`rolling_mean_delta_t_X`)
+- **What it measures:** Rolling average of inter-packet delays over X packets (X = 3, 5, 10).
+- **Why it's included:** Smooths short-term fluctuations to highlight consistent timing behavior (e.g., periodic beacons).
+
+8. Rolling Std Dev of Time Delta (`rolling_std_delta_t_X`)
+- **What it measures:** Rolling standard deviation of `time_since_last` over X packets.
+- **Why it's included:** Measures variability of timing. Random jitter or bursty behavior is more detectable via variance.
+
+9. TCP Flag Indicators (`is_SYN`, `is_ACK`, `is_RST`, `is_FIN`, `is_PSH`, `is_URG`)
+- **What they measure:** Presence of specific TCP flags extracted from `tcp.flags`.
+- **Why they're included:** Different C2 frameworks may:
+  - frequently initiate sessions (`SYN`)
+  - send excessive acknowledgments (`ACK`)
+  - use resets for evasion (`RST`)
+  - gracefully end sessions (`FIN`)
+  - push immediate data (`PSH`)
+  - rarely use urgent data (`URG`, included for completeness)
 
 ---
 
-### **3. Time Since Last Packet (`time_since_last`)**
-- **What it measures:** The time (in seconds) since the previous packet in the dataset.
-- **Calculation:** Computed using the difference between consecutive `frame.time_relative` values.
-- **Why it was selected:** 
-  - C2 traffic often exhibits different timing patterns than normal web traffic.
-  - Normal traffic may be more continuous, whereas C2 may have bursts of activity or timed beacons.
+## Usage
+Run the script from the command line:
+```bash
+python extract_features_mixed.py <input_pcap> <output_csv>
+```
+- `<input_pcap>`: Path to the input PCAP file.
+- `<output_csv>`: Path to save the extracted features as a CSV.
+---
+
+## Output
+The output CSV will contain the following columns:
+
+- frame.len
+- ip.proto
+- src_ip
+- dst_ip
+- c2_label
+- time_since_last
+- delta_t_ratio
+- rolling_mean_delta_t_3 / 5 / 10
+- rolling_std_delta_t_3 / 5 / 10
+- is_SYN, is_ACK, is_RST, is_FIN, is_PSH, is_URG
 
 ---
 
-### **4. Delta Time Ratio (`delta_t_ratio`)**
-- **What it measures:** The ratio of the current packet’s interarrival time to the previous packet’s interarrival time.
-- **Calculation:** 
-  - `delta_t_ratio` = `time_since_last(n)` / `time_since_last(n-1)`
-  - First packet is set to 1 to avoid division errors.
-- **Why it was selected:** 
-  - Helps capture sudden shifts in traffic patterns, which might indicate the presence of periodic C2 activity.
-  - Useful for detecting structured timing behaviors in command execution.
+## Notes
+- The C2 host IP is hardcoded via `C2_HOST` in the script. Update as needed.
+- This script uses `tshark` to extract fields directly from the PCAP. Make sure tshark is installed via `pip install -r requirements.txt`.
+- Missing or malformed values are handled with default replacements (e.g., treating missing IPs as "UNKNOWN").
 
----
 
-### **5. Rolling Mean of Time Delta (`rolling_mean_delta_t_X`)**
-- **What it measures:** The average of `time_since_last` over a rolling window of X packets.
-- **Calculation:** 
-  - `rolling_mean_delta_t_X` = `mean(time_since_last / X previous packets)`
-  - Computed for window sizes of **3, 5, and 10** packets.
-- **Why it was selected:** 
-  - Smooths out individual packet variations to detect broader timing trends.
-  - Helps recognize whether C2 traffic follows periodic beaconing behavior.
-
----
-
-### **6. Rolling Standard Deviation of Time Delta (`rolling_std_delta_t_X`)**
-- **What it measures:** The variability of `time_since_last` over a rolling window of X packets.
-- **Calculation:** 
-  - `rolling_std_delta_t_X` = `std(time_since_last / X previous packets)`
-  - Computed for window sizes of **3, 5, and 10** packets.
-- **Why it was selected:** 
-  - Detects fluctuations in timing, which could indicate C2 frameworks with randomized beaconing.
-  - High standard deviation could mean bursty C2 traffic, while low values might indicate constant beaconing.
-
----
-
-### **7. TCP Flag Indicators (`is_SYN`, `is_ACK`, `is_RST`, `is_FIN`, `is_PSH`, `is_URG`)**
-Each of these flags represents a specific TCP operation. They are extracted from the `tcp.flags` field and converted into binary features (0 = flag not set, 1 = flag set).
-
-#### **7.1. `is_SYN` (SYN Flag)**
-- **What it measures:** Whether a packet is attempting to initiate a TCP connection.
-- **Why it was selected:** 
-  - C2 frameworks may initiate new connections more frequently than normal web traffic.
-  - Might be useful for detecting whether a framework repeatedly creates new sessions instead of reusing a persistent connection.
-
-#### **7.2. `is_ACK` (ACK Flag)**
-- **What it measures:** Whether a packet is acknowledging receipt of data.
-- **Why it was selected:** 
-  - C2 frameworks might send excessive acknowledgments to maintain control channels.
-  - If ACKs are unusually frequent in a session, it could indicate persistent C2 activity.
-
-#### **7.3. `is_RST` (RST Flag)**
-- **What it measures:** Whether a packet is terminating a TCP session abruptly.
-- **Why it was selected:** 
-  - C2 frameworks using evasive techniques might intentionally send resets to avoid detection.
-  - Anomalous resets during C2 activity might be distinguishable.
-
-#### **7.4. `is_FIN` (FIN Flag)**
-- **What it measures:** Whether a packet is requesting a graceful termination of a TCP session.
-- **Why it was selected:** 
-  - Some C2 frameworks might establish short-lived sessions and cleanly terminate them after command execution.
-  - Could help differentiate structured C2 shutdown behavior from typical web browsing.
-
-#### **7.5. `is_PSH` (PSH Flag)**
-- **What it measures:** Whether a packet requests immediate data delivery to the application layer.
-- **Why it was selected:** 
-  - C2 frameworks may use this flag when sending commands in real time.
-  - Observing C2 vs. normal traffic behavior for PSH patterns could be useful.
-
-#### **7.6. `is_URG` (URG Flag)**
-- **What it measures:** Whether a packet contains urgent data that should be prioritized.
-- **Why it was selected:** 
-  - Included to check whether any C2 framework makes use of it.
-  - If it turns out to be completely unused, it can be dropped later.
-
----
-
-### **Final Feature Set**
-| Feature | What it Measures | Why it’s Included |
-|---------|-----------------|------------------|
-| `frame.len` | Packet size in bytes | Identifies possible C2 size patterns |
-| `ip.proto` | Protocol number (TCP/UDP) | Helps confirm C2 protocols (e.g., HTTPS) |
-| `time_since_last` | Time between packets | Detects C2 timing patterns |
-| `delta_t_ratio` | Ratio of consecutive inter-packet delays | Identifies structured timing behavior |
-| `rolling_mean_delta_t_3`, `rolling_mean_delta_t_5`, `rolling_mean_delta_t_10` | Smoothed time deltas | Captures beaconing periodicity |
-| `rolling_std_delta_t_3`, `rolling_std_delta_t_5`, `rolling_std_delta_t_10` | Variability in time deltas | Detects bursty vs. stable C2 traffic |
-| `is_SYN` | TCP connection initiation | Detects frequent session creation |
-| `is_ACK` | Acknowledgment flag | Identifies excessive ACKs in C2 |
-| `is_RST` | Abrupt connection termination | Helps detect evasive techniques |
-| `is_FIN` | Graceful session closure | May reveal structured session handling |
-| `is_PSH` | Immediate data push | Could indicate real-time C2 commands |
-| `is_URG` | Urgent flag | Included for completeness, may be dropped later |
-
----
-
-### **Summary**
-- These features were selected based on expected behaviors of C2 frameworks.
-- Some features focus on **timing anomalies** (e.g., `time_since_last`, `rolling_mean_delta_t_X`).
-- Others capture **packet-level traits** (e.g., `frame.len`, `ip.proto`).
-- TCP flag features were kept since different C2 frameworks may interact with them in unexpected ways.
