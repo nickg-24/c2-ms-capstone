@@ -1,4 +1,4 @@
-# C2-MS-CAPSTONE
+# Comparing Rule-Based and ML-Based Detection of C2 Channels
 
 This repository supports a cybersecurity capstone project comparing two approaches for detecting command-and-control (C2) traffic: a behavior-based machine learning model and a traditional rule-based IDS. Specifically, it evaluates a Random Forest model trained on packet-level features against Suricata using the Emerging Threats Open ruleset. All traffic is collected in a controlled lab environment using multiple HTTPS-based C2 frameworks to simulate realistic attack scenarios.
 
