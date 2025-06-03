@@ -21,7 +21,7 @@ This repository supports a cybersecurity capstone project comparing two approach
 ├── code/             # Jupyter notebooks for training, validation, inference, and reporting
 ├── data/             # Cleaned feature CSVs generated from PCAPs
 ├── documents/        # Project report, ET Open ruleset, topology diagrams
-├── pcaps/            # Raw PCAP files (not committed; managed with Git LFS) 
+├── pcaps/            # Raw PCAP files (managed with Git LFS) 
 ├── requirements.txt  # Python dependencies for notebooks and scripts
 └── README.md         # Project overview (this file)
 ```
