@@ -2,7 +2,6 @@
 
 This repository supports a cybersecurity capstone project comparing two approaches for detecting command-and-control (C2) traffic: a behavior-based machine learning model and a traditional rule-based IDS. Specifically, it evaluates a Random Forest model trained on packet-level features against Suricata using the Emerging Threats Open ruleset. All traffic is collected in a controlled lab environment using multiple HTTPS-based C2 frameworks to simulate realistic attack scenarios.
 
----
 
 ## Project Goals
 
@@ -12,7 +11,6 @@ This repository supports a cybersecurity capstone project comparing two approach
 - Compare the ML model’s performance against Suricata using the ET Open ruleset.
 - Analyze model by testing on unseen C2 frameworks and realistic traffic mixes.
 
----
 
 ## Repository Structure
 
@@ -26,7 +24,6 @@ This repository supports a cybersecurity capstone project comparing two approach
 └── README.md         # Project overview (this file)
 ```
 
----
 
 ## Getting Started
 
@@ -60,7 +57,6 @@ pip install -r requirements.txt
 
 All scripts and notebooks assume the environment is active. For training, evaluation, and reporting information, refer to [`code/code.md`](code/code.md).
 
----
 
 ## Suricata Configuration
 
