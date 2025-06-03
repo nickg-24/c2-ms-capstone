@@ -64,10 +64,10 @@ Reports output to **`validation_reports/`**
 ---
 
 ## Utils
-foo
+The `utils` directory contains `merge_csvs.py` that combines csv datasets. It essentially concatenates the csvs to create more complex datasets.
 
 ## Feature Extraction
-foo
+Feature extraction is done using the `feature_extraction/extract_features_mixed_v1.py` script. Refer to [feature_extraction.md](./feature_extraction/feature_extraction.md) for more details.
 
 
 ## Notes
