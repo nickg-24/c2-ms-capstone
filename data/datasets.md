@@ -34,9 +34,9 @@ Targeting ~10k packets per C2 framework, each making up about 3.2% of total traf
 
 
 ### Posh - `posh_only.csv` (10242 Packets total)
-- `posh_beaconing_0.csv` → 3073 packets, ~20 minutes of beaconing, with an occasional `whoami` to ensure connection stays open. Sourced from `posh_beaconing_0.pcapng`.
-- `posh_tasks_0.csv` → 3326 packets, ~13 minutes. Ran ls, pwd, mkdir, cd, whoami, ps, ipconfig, download, various shell commands, etc. Sourced from `posh_tasks_0.csv`.
-- `posh_tasks_1.csv` → 3843 packets, ~10 minutes. Ran ipconfig, ls, ps, type, netstat, ran executables, etc. Sourced from `posh_tasks_1.csv`.
+- `posh_beaconing_0.pcapng` → 3073 packets, ~20 minutes of beaconing, with an occasional `whoami` to ensure connection stays open. Sourced from `posh_beaconing_0.pcapng`.
+- `posh_tasks_0.csv` → 3326 packets, ~13 minutes. Ran ls, pwd, mkdir, cd, whoami, ps, ipconfig, download, various shell commands, etc. Sourced from `posh_tasks_0.pcapng`.
+- `posh_tasks_1.csv` → 3843 packets, ~10 minutes. Ran ipconfig, ls, ps, type, netstat, ran executables, etc. Sourced from `posh_tasks_1.pcapng`.
 
 
 ## Normal-Only Traffic (`./normal_only/`): Exclusively Normal Traffic (249057 packets total)
